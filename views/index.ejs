@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-wrap">
+            <% for(item of items) {%>
+                <div class="content">
+                    <img class="main-img" src="<%= item.MAIN_IMG %>" alt="">
+                    <p class="content-text title"><%= item.TITLE %></p>
+                    <p class="content-text date"><%= item.DATE %></p>
+                    <p class="content-text place"><%= item.PLACE %></p>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+@import "reset.css";
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+    border: 3px solid red;
+    /* height: 100vh; */
+}
+
+.container {
+    border: 3px solid blue;
+    /* max-width: 1500px; */
+    display: flex;
+    justify-content: center;
+}
+
+.main-wrap {
+    border: 3px solid green;
+    max-width: 1500px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.content {
+    border: 3px solid red;
+    width: 250px;
+    
+}
+
+.content-text {
+    overflow: hidden;
+}
+
+.main-img {
+    width: 200px;
+}
