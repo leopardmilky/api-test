@@ -3,22 +3,82 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>서울시 문화행사 정보</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="/css/index.css">
 </head>
 <body>
     <div class="container">
-        <div class="main-wrap">
-            <% for(item of items) {%>
-                <div class="content">
-                    <img class="main-img" src="<%= item.MAIN_IMG %>" alt="">
-                    <p class="content-text title"><%= item.TITLE %></p>
-                    <p class="content-text date"><%= item.DATE %></p>
-                    <p class="content-text place"><%= item.PLACE %></p>
+        <div id="top-wrap" class="top-wrap top-bg-img">
+            <p class="top-title">서울시 문화행사 정보</p>
+            <p class="top-subtitle">우리동네 꼭 봐야할 문화체험!</p>
+        </div>
+        <div id="main-wrap" class="main-wrap">
+            <form class="search-content-form" action="/index" method="GET">
+                <input type="date" id="search-date" name="date">
+                <input type="text" id="search-content" name="query" placeholder="공연명을 입력하세요.">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            </form>
+            <div class="select-codename-wrap">
+                <form id="select-form" action="/index" method="GET" onchange="submitForm()">
+                    <select name="selectOption" id="select-codename">
+                        <option value=" " <%= selectOption === ' ' ? 'selected' : '' %>>전체</option>
+                        <option value="클래식" <%= selectOption === '클래식' ? 'selected' : '' %>>클래식</option>
+                        <option value="콘서트" <%= selectOption === '콘서트' ? 'selected' : '' %>>콘서트</option>
+                        <option value="축제-전통/역사" <%= selectOption === '축제-전통/역사' ? 'selected' : '' %>>축제-전통/역사</option>
+                        <option value="축제-자연/경관" <%= selectOption === '축제-자연/경관' ? 'selected' : '' %>>축제-자연/경관</option>
+                        <option value="축제-시민화합" <%= selectOption === '축제-시민화합' ? 'selected' : '' %>>축제-시민화합</option>
+                        <option value="축제-문화/예술" <%= selectOption === '축제-문화/예술' ? 'selected' : '' %>>축제-문화/예술</option>
+                        <option value="축제-기타" <%= selectOption === '축제-기타' ? 'selected' : '' %>>축제-기타</option>
+                        <option value="전시/미술" <%= selectOption === '전시/미술' ? 'selected' : '' %>>전시/미술</option>
+                        <option value="영화" <%= selectOption === '영화' ? 'selected' : '' %>>영화</option>
+                        <option value="연극" <%= selectOption === '연극' ? 'selected' : '' %>>연극</option>
+                        <option value="뮤지컬/오페라" <%= selectOption === '뮤지컬/오페라' ? 'selected' : '' %>>뮤지컬/오페라</option>
+                        <option value="무용" <%= selectOption === '무용' ? 'selected' : '' %>>무용</option>
+                        <option value="독주/독창회" <%= selectOption === '독주/독창회' ? 'selected' : '' %>>독주/독창회</option>
+                        <option value="국악" <%= selectOption === '국악' ? 'selected' : '' %>>국악</option>
+                        <option value="교육/체험" <%= selectOption === '교육/체험' ? 'selected' : '' %>>교육/체험</option>
+                        <option value="기타" <%= selectOption === '기타' ? 'selected' : '' %>>기타</option>
+                    </select>
+                </form>
+                
+            </div>
+            <% if(items === 'INFO-200') { %>
+                <div id="no-result">
+                    <p>검색 결과가 없습니다.</p>
                 </div>
+            <% } else { %>
+                <% for(item of items) {%>
+                    <div class="content" onclick="detail(this)" data-detail="<%= item %>">
+                        <div class="content-img-wrap">
+                            <img class="content-img" src="<%= item.MAIN_IMG %>" alt="<%= item.TITLE %>">
+                        </div>
+                        <div class="content-text-wrap">
+                            <p class="content-text codename"><%= item.CODENAME %></p>
+                            <p class="content-text title"><%= item.TITLE %></p>
+                            <p class="content-text date"><%= item.DATE %></p>
+                            <p class="content-text place"><%= item.PLACE %></p>
+                        </div>
+                    </div>
+                <% } %>
             <% } %>
+
+        </div>
+        <div id="more-wrap" class="more-wrap">
+            <button id="more-btn">+ 더보기</button>
         </div>
     </div>
+
+    <button id="arrow-up-btn"><i class="fa-solid fa-arrow-up arrow-up"></i></button>
+
+    <footer>
+        <div class="footer-wrap">
+            <p class="footer-info logo">서울시문화행사정보</p>
+            <p class="footer-info copyright">| Copyright © LEOMILKY. All Rights Reserved.</p>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="javascript/index.js"></script>
 </body>
 </html>
