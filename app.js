@@ -17,22 +17,25 @@ app.get('/', (req, res) => {
 
 app.get('/index', async(req, res) => {
     let {date, query, selectOption} = req.query;
-    let indexNum = 100;
     if(!date) { date=' ';}
     if(!query) {query=' ';}
     if(!selectOption) {selectOption=' ';}
-    const result = await axios.get(`http://openapi.seoul.go.kr:8088/${process.env.API_KEY}/json/culturalEventInfo/1/${indexNum}/${selectOption}/${query}/${date}`);
-    if(result.data.RESULT && result.data.RESULT.CODE === 'INFO-200') {
+
+    const search = query.replace(/[\[\]]/g, ''); // 대괄호는 에러가 발생함. 정규식으로 제거. (api문의글에서 참고, +검색 기능이 완벽하지 않은거 같음.)
+    const result = await axios.get(`http://openapi.seoul.go.kr:8088/${process.env.API_KEY}/json/culturalEventInfo/1/100/${selectOption}/${search}/${date}`);
+    if(result.data.RESULT && result.data.RESULT.CODE === 'INFO-200') { // INFO-200: 해당하는 데이터가 없음.
         const items = 'INFO-200'
-        return res.render('index', {items, selectOption});
+        return res.render('index', {items, selectOption, query, date});
     }
+    
     const items = result.data.culturalEventInfo.row;
-    res.render('index', {items, selectOption});
+    res.render('index', {items, selectOption, query, date});
 });
 
 app.post('/more', async(req, res) => {
-    const {cur, selectOption} = req.body;
-    const result = await axios.get(`http://openapi.seoul.go.kr:8088/${process.env.API_KEY}/json/culturalEventInfo/${cur+1}/${cur+100}/${selectOption}`);
+    let {cur, selectOption, query, date} = req.body;
+    const search = query.replace(/[\[\]]/g, '');
+    const result = await axios.get(`http://openapi.seoul.go.kr:8088/${process.env.API_KEY}/json/culturalEventInfo/${cur+1}/${cur+100}/${selectOption}/${search}/${date}`);
     if('culturalEventInfo' in result.data) {
         const resultObj = {};
         const contentArr = [];
@@ -53,16 +56,14 @@ app.post('/more', async(req, res) => {
         }
         resultObj.contentArr = contentArr;
         return res.json(resultObj);
-
     } else {
         return res.json('noData');
     }
 })
 
-app.get('/index/detail', (req, res) => {
+app.get('/index/detail', (req, res) => { // !!각 행사 정보를 찾을 수 있는 primary key같은게 없음..
     res.render('detail');
 });
-
 
 
 app.listen(3000, () => console.log('PORT 3000....!!'));

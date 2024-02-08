@@ -138,6 +138,7 @@ body {
     border: 1px solid black;
     transition: all 0.3s;
     cursor: pointer;
+    scale: 1.05;
 }
 
 .content-img-wrap {
@@ -245,4 +246,15 @@ footer {
 
 .copyright {
     color: grey;
+}
+
+#overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.6);
 }
