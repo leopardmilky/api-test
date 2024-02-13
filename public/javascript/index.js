@@ -39,6 +39,13 @@ function submitForm() {
 function detail(e) {
     const contentDetailWrap = e.nextElementSibling;
     contentDetailWrap.style.display = 'flex';
+
+    const lot = e.getAttribute('data-lot');
+    const lat = e.getAttribute('data-lat');
+    const targetElement = e.nextElementSibling.children[0].children[0].children[0].nextElementSibling.children[1];
+
+    const map = new naver.maps.Map(targetElement, { center: new naver.maps.LatLng(lot, lat), zoom: 16 });
+    new naver.maps.Marker({ position: new naver.maps.LatLng(lot, lat), map: map });
 }
 
 function closeDetail(e) {

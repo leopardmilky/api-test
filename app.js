@@ -41,15 +41,15 @@ app.post('/more', async(req, res) => {
         const contentArr = [];
         const items = result.data.culturalEventInfo.row;
         for(item of items) {
-            const data = `<div class="content">
+            const data = `<div class="content" onclick="detail(this)" data-lot="${ item.LOT }" data-lat="${ item.LAT }">
                             <div class="content-img-wrap">
-                                <img class="content-img" src="${item.MAIN_IMG}" alt="${item.TITLE}">
+                                <img class="content-img" src="${ item.MAIN_IMG }" alt="${ item.TITLE }">
                             </div>
                             <div class="content-text-wrap">
-                                <p class="content-text codename">${item.CODENAME}</p>
-                                <p class="content-text title">${item.TITLE}</p>
-                                <p class="content-text date">${item.DATE}</p>
-                                <p class="content-text place">${item.PLACE}</p>
+                                <p class="content-text codename">${ item.CODENAME }</p>
+                                <p class="content-text title">${ item.TITLE }</p>
+                                <p class="content-text date">${ item.DATE }</p>
+                                <p class="content-text place">${ item.PLACE }</p>
                             </div>
                           </div>
                           <div class="content-detail-wrap">
@@ -86,7 +86,7 @@ app.post('/more', async(req, res) => {
                                   </div>
                                   <div class="content-detail-place-wrap">
                                       <p class="place-title">위 치</p>
-                                      
+                                      <div id="map"></div>
                                   </div>
                                   <div class="content-detail-close-wrap">
                                       <button class="content-detail-close-btn" onclick="closeDetail(this)">닫기</button>
