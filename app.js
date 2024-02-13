@@ -61,9 +61,5 @@ app.post('/more', async(req, res) => {
     }
 })
 
-app.get('/index/detail', (req, res) => { // !!각 행사 정보를 찾을 수 있는 primary key같은게 없음..
-    res.render('detail');
-});
-
 
 app.listen(3000, () => console.log('PORT 3000....!!'));

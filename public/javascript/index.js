@@ -36,15 +36,12 @@ function submitForm() {
     document.getElementById("select-form").submit();
 }
 
-// function detail(e) {
-//     const res = JSON.parse(e.dataset.item)
-//     console.log("res: ", res);
-//     console.log("e.dataset: ", e.dataset);
-//     console.log("e.dataset.item: ", e.dataset.item);
-// }
-
 function detail(e) {
-    const result = document.getElementById('content-detail-background');
-    result.style.display = 'block';
+    const contentDetailWrap = e.nextElementSibling;
+    contentDetailWrap.style.display = 'flex';
+}
 
+function closeDetail(e) {
+    const contentDetailWrap = e.parentElement.parentElement.parentElement.parentElement;
+    contentDetailWrap.style.display = 'none';
 }

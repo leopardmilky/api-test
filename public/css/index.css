@@ -2,19 +2,15 @@
 
 body {
     font-family: 'Noto Sans KR', sans-serif;
-    /* border: 3px solid red; */
-    /* height: 100vh; */
 }
 
 .container {
-    /* border: 3px solid blue; */
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .top-wrap {
-    /* border: 3px solid orange; */
     width: 100%;
     height: 200px;
     display: flex;
@@ -44,16 +40,13 @@ body {
 }
 
 .main-wrap {
-    /* border: 2px solid black; */
     margin-top: 20px;
     border-radius: 10px;
     max-width: 1500px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
-    /* align-items: center; */
-    
+    justify-content: center;    
 }
 
 .search-content-form {
@@ -64,7 +57,6 @@ body {
     margin-bottom: 30px;
     padding-bottom: 30px;
     border-bottom: 1px solid grey;
-    /* border-bottom-width: 50%; */
 }
 
 #search-content {
@@ -185,6 +177,159 @@ body {
     font-size: small;
 }
 
+
+/* detail 모달 */
+.content-detail-wrap {
+    display: none;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+.content-detail {
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 1200px;
+    height: 80%;
+    overflow-y: auto;
+}
+
+.content-detail::-webkit-scrollbar {
+    width: 10px;
+}
+
+.content-detail::-webkit-scrollbar-thumb {
+    background: grey;
+}
+
+.content-detail::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
+.content-detail-close-wrap {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+    box-sizing: content-box;
+    margin-top: 30px;
+}
+
+.content-detail-close-btn {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+    color: white;
+    background-color: black;
+    font-size: 100%;
+}
+
+.xmark {
+    font-size: 100%;
+    box-sizing: content-box;
+}
+
+.content-detail-info-wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding: 3%;
+}
+
+.content-detail-event-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+.content-detail-img-wrap {
+    display: flex;
+    justify-content: center;
+    display: flex;
+    width: 50%;
+}
+
+.content-detail-img {
+    width: 400px;
+    height: 600px;
+}
+
+.content-detail-text-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+.detail-title {
+    font-weight: bold;
+    font-size: 200%;
+    margin-bottom: 40px;
+}
+
+.content-detail-text {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    margin-bottom: 10px;
+    height: 70px;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background-color: whitesmoke;
+    height: 100%;
+    aspect-ratio: 1 / 1; /* 요소의 가로와 세로 비율을 1:1로 유지 */
+    box-sizing: border-box;
+}
+
+.tag-text {
+    padding-left: 15px;
+}
+
+.org-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    background-color: black;
+    height: 40px;
+    width: 100%;
+}
+
+.content-detail-place-wrap {
+    background-color: whitesmoke;
+    margin-top: 20px;
+    width: 100%;
+    height: 500px;
+}
+
+.place-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+/* 더보기 버튼 */
 .more-wrap {
     margin-top: 30px;
     width: 100%;
@@ -206,15 +351,23 @@ body {
     background-color: whitesmoke;
 }
 
+
+/* 맨위로 버튼 */
 #arrow-up-btn {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    border: none;
     position: fixed;
     top: 90%;
     left: 93%;
     background-color: black;
+    opacity: 0.7;
     cursor: pointer;
+}
+
+#arrow-up-btn:hover {
+    opacity: 1;
 }
 
 .arrow-up {
@@ -248,13 +401,3 @@ footer {
     color: grey;
 }
 
-#overlay {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 999;
-    background-color: rgba(0, 0, 0, 0.6);
-}
