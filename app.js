@@ -51,7 +51,49 @@ app.post('/more', async(req, res) => {
                                 <p class="content-text date">${item.DATE}</p>
                                 <p class="content-text place">${item.PLACE}</p>
                             </div>
-                          </div>`
+                          </div>
+                          <div class="content-detail-wrap">
+                          <div class="content-detail">
+                              <div class="content-detail-info-wrap">
+                                  <div class="content-detail-event-wrap">
+                                      <div class="content-detail-img-wrap">
+                                          <img class="content-detail-img" src="${ item.MAIN_IMG }" alt="">
+                                      </div>
+                                      <div class="content-detail-text-wrap">
+                                          <p class="detail-title">${ item.TITLE }</p>
+                                          <div class="content-detail-text">
+                                              <div class="tag">분류</div>
+                                              <div class="tag-text">${ item.CODENAME }</div>
+                                          </div>
+                                          <div class="content-detail-text">
+                                              <div class="tag">장소</div>
+                                              <div class="tag-text">${ item.PLACE }</div>
+                                          </div>
+                                          <div class="content-detail-text">
+                                              <div class="tag">기간</div>
+                                              <div class="tag-text">${ item.DATE }</div>
+                                          </div>
+                                          <div class="content-detail-text">
+                                              <div class="tag">대상</div>
+                                              <div class="tag-text">${ item.USE_TRGT }</div>
+                                          </div>
+                                          <div class="content-detail-text">
+                                              <div class="tag">요금</div>
+                                              <div class="tag-text">${ item.USE_FEE }</div>
+                                          </div>
+                                          <a class="org-link" href="${ item.ORG_LINK }" target="_blank">홈페이지 바로가기<i class="fa-solid fa-link"></i></a>
+                                      </div>
+                                  </div>
+                                  <div class="content-detail-place-wrap">
+                                      <p class="place-title">위 치</p>
+                                      
+                                  </div>
+                                  <div class="content-detail-close-wrap">
+                                      <button class="content-detail-close-btn" onclick="closeDetail(this)">닫기</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>`
             contentArr.push(data);
         }
         resultObj.contentArr = contentArr;
