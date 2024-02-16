@@ -205,6 +205,19 @@ body {
     overflow-y: auto;
 }
 
+@media (max-width: 1200px) {
+    .content-detail {
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 1000px) {
+    .content-detail {
+        width: 100%;
+    }
+}
+
 .content-detail::-webkit-scrollbar {
     width: 10px;
 }
@@ -255,16 +268,39 @@ body {
     width: 100%;
 }
 
+@media (max-width: 1000px) {
+    .content-detail-event-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+}
+
 .content-detail-img-wrap {
     display: flex;
     justify-content: center;
-    display: flex;
     width: 50%;
+}
+
+@media (max-width: 1000px) {
+    .content-detail-img-wrap {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
 }
 
 .content-detail-img {
     width: 400px;
     height: 600px;
+}
+
+@media (max-width: 1000px) {
+    .content-detail-img {
+        width: 100%;
+        height: 100%;
+    }
 }
 
 .content-detail-text-wrap {
@@ -273,10 +309,27 @@ body {
     width: 50%;
 }
 
+@media (max-width: 1000px) {
+    .content-detail-text-wrap {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
 .detail-title {
     font-weight: bold;
     font-size: 200%;
     margin-bottom: 40px;
+}
+
+@media (max-width: 500px) {
+    .detail-title {
+        font-weight: bold;
+        font-size: 130%;
+        margin-bottom: 40px;
+    }
 }
 
 .content-detail-text {
@@ -285,6 +338,16 @@ body {
     border: 1px solid black;
     margin-bottom: 10px;
     height: 70px;
+}
+
+@media (max-width: 500px) {
+    .content-detail-text {
+        display: flex;
+        align-items: center;
+        border: 1px solid black;
+        margin-bottom: 10px;
+        height: 50px;
+    }
 }
 
 .tag {
@@ -299,8 +362,30 @@ body {
     font-weight: bold;
 }
 
+@media (max-width: 500px) {
+    .tag {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        background-color: whitesmoke;
+        height: 100%;
+        aspect-ratio: 1 / 1; /* 요소의 가로와 세로 비율을 1:1로 유지 */
+        box-sizing: border-box;
+        font-weight: bold;
+        font-size: small;
+    }
+}
+
 .tag-text {
     padding-left: 15px;
+}
+
+@media (max-width: 500px) {
+    .tag-text {
+        padding-left: 15px;
+        font-size: small;
+    }
 }
 
 .org-link {
@@ -323,6 +408,19 @@ body {
     margin-top: 20px;
     width: 100%;
     height: 500px;
+}
+
+@media (max-width: 500px) {
+    .content-detail-place-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: whitesmoke;
+        margin-top: 20px;
+        width: 100%;
+        height: 300px;
+    }
 }
 
 .place-title {
