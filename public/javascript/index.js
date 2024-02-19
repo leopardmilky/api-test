@@ -37,6 +37,7 @@ function submitForm() {
 }
 
 function detail(e) {
+    document.body.style.overflow = 'hidden';
     const contentDetailWrap = e.nextElementSibling;
     contentDetailWrap.style.display = 'flex';
 
@@ -48,7 +49,17 @@ function detail(e) {
     new naver.maps.Marker({ position: new naver.maps.LatLng(lot, lat), map: map });
 }
 
-function closeDetail(e) {
+function closeDetailBtn(e) {
+    document.body.style.overflow = 'auto';
     const contentDetailWrap = e.parentElement.parentElement.parentElement.parentElement;
     contentDetailWrap.style.display = 'none';
 }
+
+document.addEventListener('click', (e) => {
+    const contentDetailWrap = e.target.getAttribute('class');
+    if(contentDetailWrap === 'content-detail-wrap') {
+        e.target.style.display = 'none';
+    }
+})
+
+
