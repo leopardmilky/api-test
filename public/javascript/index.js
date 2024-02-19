@@ -59,6 +59,7 @@ document.addEventListener('click', (e) => {
     const contentDetailWrap = e.target.getAttribute('class');
     if(contentDetailWrap === 'content-detail-wrap') {
         e.target.style.display = 'none';
+        document.body.style.overflow = 'auto';
     }
 })
 
