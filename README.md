@@ -37,4 +37,4 @@
 
 
 ## 📝프로젝트 아키텍처
-![테스트](https://github.com/leopardmilky/api-test/assets/83879695/c15ac5f0-d708-4d64-8f85-f0c3649a6c61)
+![프로젝트아키텍처](https://github.com/leopardmilky/api-test/assets/83879695/4bc28d14-4952-495a-975b-7b71697386db)
