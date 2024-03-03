@@ -1,6 +1,6 @@
 #!/bin/sh
 ssh ubuntu@3.25.181.51 <<EOF
-    cd ~/api-test		
+    cd ~/seoul_cultural_event
     git pull origin master
     curl -o-   https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh    | bash
     . ~/.nvm/nvm.sh 
