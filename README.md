@@ -22,9 +22,9 @@
 
 
 ## :warning: 버전정보
-- node.js 18.19.1
+- node.js 20.11.1
 - express 4.18.2
-- jenkins 2.426.3
+- jenkins 2.440.1
 - ec2 / ubuntu 22.04 LTS
 
 
