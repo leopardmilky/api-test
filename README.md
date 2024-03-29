@@ -1,7 +1,7 @@
 # :star:Open API 토이 프로젝트
 
 #### 기간: 2024.01.30 ~ 2024.02.19
-#### 링크: http://13.125.119.229/index
+#### 링크: http://3.25.181.51/index
 
 
 ## :sparkles:사용기술
@@ -22,9 +22,9 @@
 
 
 ## :warning: 버전정보
-- node.js 18.19.1
+- node.js 20.11.1
 - express 4.18.2
-- jenkins 2.426.3
+- jenkins 2.440.1
 - ec2 / ubuntu 22.04 LTS
 
 
