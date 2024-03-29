@@ -89,7 +89,7 @@ app.post('/more', async(req, res) => {
                                       <div id="map"></div>
                                   </div>
                                   <div class="content-detail-close-wrap">
-                                      <button class="content-detail-close-btn" onclick="closeDetail(this)">닫기</button>
+                                      <button class="content-detail-close-btn" onclick="closeDetailBtn(this)">닫기</button>
                                   </div>
                               </div>
                           </div>
